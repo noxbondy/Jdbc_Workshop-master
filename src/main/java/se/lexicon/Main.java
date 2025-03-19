@@ -34,7 +34,18 @@ public class Main {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+   // insert
+        City newCity = new City(1012, "Bangladesh", "USA", "Dhaka", 500000);
+        City savedCity = cityDao.save(newCity);
+        System.out.println("Saved City: " + savedCity.getId());
 
+        // update by id
+        newCity.setName("UpdatedCity");
+        cityDao.update(newCity);
+        System.out.println("updatecity"+savedCity.getId());
+
+        // delete by id
+        cityDao.deleteById(33);
 
     }
 }
